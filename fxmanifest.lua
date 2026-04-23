@@ -5,7 +5,7 @@ lua54 'yes'
 name 'faesslich_pedmanager'
 author 'Faesslich'
 description 'Ped manager with React NUI for FiveM ESX/QBCore'
-version '0.0.1'
+version '1.0.0'
 
 shared_scripts {
     '@ox_lib/init.lua',
