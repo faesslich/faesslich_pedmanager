@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    @media (min-width: 2560px) {
+        font-size: 125%;
+    }
+    @media (min-width: 3300px) {
+        font-size: 150%;
+    }
+}
+
+body {
+    font-family: 'Segoe UI', Franklin Gothic Medium, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#root {
+    height: 100vh;
+    width: 100vw;
+}
+
+*, *:before, *:after {
+    user-select: none;
+}
+
+/* Custom scrollbar */
+.scrollbar-thin {
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: rgba(100, 116, 139, 0.4);
+        border-radius: 999px;
+        &:hover {
+            background: rgba(100, 116, 139, 0.6);
+        }
+    }
+}
+
+/* Right-side ped manager panel inspired by faesslich_carseat_selector */
+.pedmanager-panel {
+    position: fixed;
+    top: 5vh;
+    bottom: 5vh;
+    right: -30vh;
+    width: min(50vw, 900px);
+    z-index: 50;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(55, 65, 81, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transform: perspective(120vw) rotateY(-15deg);
+    transform-origin: right center;
+    transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.35s ease-out,
+                visibility 0s linear 0.5s;
+    animation: pedmanager-perspective 15s ease-in-out infinite;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.94) 0%, rgba(3, 7, 18, 0.97) 100%);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+
+    &.is-visible {
+        right: 2vh;
+        opacity: 1;
+        visibility: visible;
+        transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.35s ease-out,
+                    visibility 0s linear 0s;
+    }
+
+    &:hover {
+        animation-play-state: paused;
+        transform: perspective(120vw) rotateY(-8deg);
+    }
+}
+
+@keyframes pedmanager-perspective {
+    0%, 100% { transform: perspective(120vw) rotateY(-15deg) rotateX(0deg); }
+    25%      { transform: perspective(120vw) rotateY(-13deg) rotateX(0.5deg); }
+    50%      { transform: perspective(120vw) rotateY(-16deg) rotateX(0deg); }
+    75%      { transform: perspective(120vw) rotateY(-17deg) rotateX(0.5deg); }
+}
+
+

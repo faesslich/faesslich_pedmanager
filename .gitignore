@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+
+# Build outputs
+build/
+tools/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
